@@ -28,11 +28,6 @@ message(STATUS "[OPTION] MPAS_PROFILE: ${MPAS_PROFILE}")
 message(STATUS "[OPTION] MPAS_OPENMP: ${MPAS_OPENMP}")
 message(STATUS "[OPTION] BUILD_SHARED_LIBS: ${BUILD_SHARED_LIBS}")
 
-# Build product output locations
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-
 # Set default build type to RelWithDebInfo
 if(NOT CMAKE_BUILD_TYPE)
   message(STATUS "Setting default build type to Release.  Specify CMAKE_BUILD_TYPE to override.")
