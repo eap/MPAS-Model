@@ -22,6 +22,11 @@ add_library(esmf ${_esmf_time_src})
 mpas_fortran_target(esmf)
 add_library(${PROJECT_NAME}::external::esmf ALIAS esmf)
 
+# This library is MPAS's bundled ESMF time-manager stubs, not real ESMF. Naming the
+# file libesmf lets the loader substitute a real ESMF found via LD_LIBRARY_PATH,
+# breaking every MPAS executable. The target keeps its name: it is aliased/exported.
+set_target_properties(esmf PROPERTIES OUTPUT_NAME mpas_esmf_time)
+
 target_compile_definitions(esmf PRIVATE HIDE_MPI=1)
 
 target_include_directories(esmf PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
